@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Таблицы для отчёта</title>
+<style>
+  body { font-family: "Times New Roman", serif; max-width: 800px; margin: 30px auto; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 24px; }
+  th, td { border: 1px solid black; padding: 4px 8px; text-align: center; font-size: 12pt; }
+  th { background: #f0f0f0; font-weight: bold; }
+  td:first-child { text-align: left; }
+  p.caption { font-style: italic; font-size: 12pt; margin: 12px 0 4px; }
+</style>
+</head>
+<body>
+
+<p class="caption">Таблица 1. Результаты экспериментов</p>
+<table>
+  <tr>
+    <th>Порог поддержки</th>
+    <th>Мин. поддержка, транзакций</th>
+    <th>Наборов длины 1</th>
+    <th>Наборов длины 2</th>
+    <th>Наборов длины 3</th>
+    <th>Всего наборов</th>
+    <th>Время работы</th>
+  </tr>
+  <tr><td>1%</td><td>76</td><td>74</td><td>170</td><td>17</td><td>261</td><td>≈ 0,9–1,8 с</td></tr>
+  <tr><td>3%</td><td>226</td><td>36</td><td>19</td><td>—</td><td>55</td><td>≈ 170 мс</td></tr>
+  <tr><td>5%</td><td>376</td><td>25</td><td>3</td><td>—</td><td>28</td><td>≈ 90 мс</td></tr>
+  <tr><td>10%</td><td>751</td><td>7</td><td>—</td><td>—</td><td>7</td><td>≈ 16 мс</td></tr>
+  <tr><td>15%</td><td>1126</td><td>5</td><td>—</td><td>—</td><td>5</td><td>≈ 15 мс</td></tr>
+</table>
+
+<p class="caption">Таблица 2. Ассоциативные правила с наибольшим lift (порог поддержки 1%, confidence ≥ 0,3)</p>
+<table>
+  <tr>
+    <th>Правило</th>
+    <th>Support</th>
+    <th>Confidence</th>
+    <th>Lift</th>
+  </tr>
+  <tr><td>{травы и перец} → {говяжий фарш}</td><td>1,6%</td><td>32,3%</td><td>3,29</td></tr>
+  <tr><td>{замороженные овощи, минеральная вода} → {молоко}</td><td>1,1%</td><td>31,0%</td><td>2,39</td></tr>
+  <tr><td>{суп} → {молоко}</td><td>1,5%</td><td>30,1%</td><td>2,32</td></tr>
+  <tr><td>{говяжий фарш} → {макароны}</td><td>4,0%</td><td>41,0%</td><td>2,18</td></tr>
+</table>
+
+<p class="caption">Таблица 3. Задание 2 (ECLAT): результаты варьирования порога достоверности (поддержка зафиксирована на 0,2%)</p>
+<table>
+  <tr>
+    <th>Порог достоверности</th>
+    <th>Найдено правил</th>
+    <th>Время поиска правил</th>
+  </tr>
+  <tr><td>70%</td><td>13</td><td>≈ 21 мс</td></tr>
+  <tr><td>75%</td><td>6</td><td>≈ 15 мс</td></tr>
+  <tr><td>80%</td><td>3</td><td>≈ 8 мс</td></tr>
+  <tr><td>85%</td><td>0</td><td>≈ 6 мс</td></tr>
+  <tr><td>90%</td><td>0</td><td>≈ 9 мс</td></tr>
+  <tr><td>95%</td><td>0</td><td>≈ 9 мс</td></tr>
+</table>
+
+<p class="caption">Таблица 4. Задание 2: список правил с |антецедент| + |консеквент| ≤ 7 и достоверностью ≥ 70%</p>
+<table>
+  <tr>
+    <th>Антецедент → консеквент</th>
+    <th>Объектов</th>
+    <th>Support</th>
+    <th>Confidence</th>
+    <th>Lift</th>
+  </tr>
+  <tr><td>{грибной соус, эскалоп} → {макароны}</td><td>3</td><td>0,43%</td><td>74,4%</td><td>3,96</td></tr>
+  <tr><td>{замороженные овощи, молоко, суп} → {минеральная вода}</td><td>4</td><td>0,31%</td><td>76,7%</td><td>3,22</td></tr>
+  <tr><td>{макароны, растительное масло, яйца} → {минеральная вода}</td><td>4</td><td>0,31%</td><td>71,9%</td><td>3,02</td></tr>
+  <tr><td>{замороженные овощи, оливковое масло, шоколад} → {минеральная вода}</td><td>4</td><td>0,28%</td><td>70,0%</td><td>2,94</td></tr>
+  <tr><td>{молоко, оливковое масло, яйца} → {минеральная вода}</td><td>4</td><td>0,27%</td><td>71,4%</td><td>3,00</td></tr>
+  <tr><td>{говяжий фарш, замороженные овощи, креветки} → {макароны}</td><td>4</td><td>0,25%</td><td>79,2%</td><td>4,21</td></tr>
+  <tr><td>{макароны, обезжиренное молоко} → {минеральная вода}</td><td>3</td><td>0,25%</td><td>73,1%</td><td>3,07</td></tr>
+  <tr><td>{блинчики, макароны, растительное масло} → {минеральная вода}</td><td>4</td><td>0,23%</td><td>73,9%</td><td>3,10</td></tr>
+  <tr><td>{блинчики, макароны, суп} → {минеральная вода}</td><td>4</td><td>0,23%</td><td>77,3%</td><td>3,24</td></tr>
+  <tr><td>{блинчики, говяжий фарш, рис} → {минеральная вода}</td><td>4</td><td>0,21%</td><td>84,2%</td><td>3,53</td></tr>
+  <tr><td>{замороженные овощи, оливковое масло, помидоры} → {макароны}</td><td>4</td><td>0,21%</td><td>84,2%</td><td>4,48</td></tr>
+  <tr><td>{индейка, красное вино} → {минеральная вода}</td><td>3</td><td>0,21%</td><td>72,7%</td><td>3,05</td></tr>
+  <tr><td>{молоко, помидоры, рис} → {макароны}</td><td>4</td><td>0,21%</td><td>80,0%</td><td>4,26</td></tr>
+</table>
+
+</body>
+</html>
