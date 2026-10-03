@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Лабораторная 2. Поиск ассоциативных правил (ECLAT)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <style>body { font-family: sans-serif; max-width: 900px; margin: 30px auto; }</style>
+</head>
+<body>
+    <h2>1. Быстродействие поиска правил при изменении порога достоверности</h2>
+    <div style="height: 400px;"><canvas id="time"></canvas></div>
+    <h2>2. Общее количество найденных правил при изменении порога достоверности</h2>
+    <div style="height: 400px;"><canvas id="count"></canvas></div>
+    <script>
+        const labels = ["70%", "75%", "80%", "85%", "90%", "95%"];
+        new Chart(document.getElementById('time'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{ label: 'время поиска правил, мс', data: [30.352778, 12.298798, 17.511258, 10.832868, 15.344688, 14.685718] }]
+            },
+            options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+        });
+        new Chart(document.getElementById('count'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{ label: 'количество правил', data: [13, 6, 3, 0, 0, 0] }]
+            },
+            options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+        });
+    </script>
+</body>
+</html>
